@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rishi Gupta | Full Stack and AI/ML Developer</title>
+  <meta name="description" content="Rishi Gupta, B.Tech CSE student at Manav Rachna University. Full stack and AI/ML developer: React, Node.js, Python, FastAPI, PyTorch.">
+  <meta property="og:title" content="Rishi Gupta | Full Stack and AI/ML Developer">
+  <meta property="og:description" content="Projects, internship work and results, with the numbers behind them.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#F5F6FA">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="mark" href="#top" aria-label="Rishi Gupta, back to top">RG</a>
+    <nav aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <h1>Rishi Gupta</h1>
+      <p class="role">Full stack and AI/ML developer. I build web apps and machine learning systems, and I measure whether they work.</p>
+
+      <figure class="proof" aria-labelledby="proof-cap">
+        <div class="proof-row">
+          <span class="proof-label">Before</span>
+          <div class="bar"><span class="fill fill-before"></span></div>
+          <span class="proof-val">100 s</span>
+        </div>
+        <div class="proof-row">
+          <span class="proof-label">After</span>
+          <div class="bar"><span class="fill fill-after"></span></div>
+          <span class="proof-val">2.3 s</span>
+        </div>
+        <figcaption id="proof-cap">Time to generate 20 lines of handwriting in HandScript AI, cut by 97.7%.</figcaption>
+      </figure>
+
+      <p class="facts">B.Tech Computer Science Engineering, Manav Rachna University, 2023 to 2027. Based in Faridabad, India.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="https://github.com/Rishi7567" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/rishigupta007" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <section id="experience" class="block">
+      <h2>Experience</h2>
+      <article class="job">
+        <div class="job-head">
+          <h3>Software Development Engineer Intern, Monetizely</h3>
+          <p class="when">June 2026 to August 2026</p>
+        </div>
+        <p class="lede">Built the <strong>SaaS Pricing Model Simulator</strong>, a tool that compares how seat-based, usage-based and outcome-based pricing grow a company's annual recurring revenue (ARR) over 36 months.</p>
+        <ul>
+          <li>Built the full-stack app with React, Node.js and Express, with Chart.js graphs of the 36-month ARR forecast.</li>
+          <li>Designed a stateless REST API for ARR projections and growth-sensitivity analysis, with debounced live updates as inputs change.</li>
+          <li>Verified the pricing engine with 9 API test cases, covering hand-calculated values and invalid inputs.</li>
+        </ul>
+        <p class="stack">React, Vite, Chart.js, Node.js, Express</p>
+      </article>
+    </section>
+
+    <section id="projects" class="block">
+      <h2>Projects</h2>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>HandScript AI</h3>
+          <a class="repo" href="https://github.com/Rishi7567/handscript-ai" target="_blank" rel="noopener">View code on GitHub</a>
+        </div>
+        <p class="lede">Turns typed text into realistic handwriting, and can copy a person's own style from a photo of their writing.</p>
+        <dl class="figures">
+          <div><dt>Faster generation</dt><dd>97.7%</dd></div>
+          <div><dt>Cold start</dt><dd>10 s to &lt;1 s</dd></div>
+          <div><dt>Repeat requests</dt><dd>&lt;1 ms</dd></div>
+        </dl>
+        <ul>
+          <li>Cut 20-line generation time from 100 s to 2.3 s with TensorFlow model-level batching, 60% LSTM step truncation, and a SHA-256 keyed LRU cache.</li>
+          <li>Designed a 3-tier microservice system (React/TypeScript, Node.js/Express, FastAPI/Python) with MongoDB storage, and preloaded models in the background so cold start dropped below 1 second.</li>
+          <li>Built a 2-stage style extraction pipeline: OpenCV contour segmentation, then PyTorch TRGAN (GAN + Transformers) to turn a handwriting photo into a style for one-shot personalised output.</li>
+        </ul>
+        <p class="stack">React, TypeScript, Node.js, Express.js, FastAPI, Python, PyTorch, TensorFlow, OpenCV, MongoDB</p>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>NewsImpact</h3>
+          <a class="repo" href="https://github.com/Rishi7567/newsimpact" target="_blank" rel="noopener">View code on GitHub</a>
+        </div>
+        <p class="lede">Reads live financial news and works out which stocks each story is likely to move, then checks those calls against what prices actually did.</p>
+        <dl class="figures">
+          <div><dt>Stance model accuracy</dt><dd>76.7%</dd></div>
+          <div><dt>On confident calls</dt><dd>86.0%</dd></div>
+          <div><dt>Codebase</dt><dd>16k lines</dd></div>
+        </dl>
+        <ul>
+          <li>Built a local, privacy-first engine that reads RSS, SEC EDGAR 8-K filings, GDELT and broadcast OCR, and maps each story to affected stocks, including second-order names.</li>
+          <li>Fine-tuned a DistilRoBERTa hawkish/dovish stance model to 76.7% accuracy, rising to 86.0% on confident calls through a calibrated abstain policy.</li>
+          <li>Backed every news-to-stock claim with event studies on real market data (abnormal return, t-stat, p-value), and graded live calls against realised prices at 1, 5 and 20 days.</li>
+          <li>Scheduled news sources with a UCB1 bandit, filtered for relevance with Aho-Corasick, and removed duplicates with SimHash.</li>
+        </ul>
+        <p class="stack">Next.js, React, TypeScript, Python, FastAPI, PyTorch, Hugging Face Transformers</p>
+      </article>
+    </section>
+
+    <section id="skills" class="block">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>C, Python, JavaScript, TypeScript, SQL, HTML, CSS</dd></div>
+        <div><dt>Frameworks and libraries</dt><dd>React.js, Next.js, Node.js, Express.js, FastAPI, Hugging Face Transformers, Tailwind CSS, Vite, Chart.js</dd></div>
+        <div><dt>Databases</dt><dd>MongoDB, PostgreSQL, ChromaDB</dd></div>
+        <div><dt>AI and machine learning</dt><dd>LangChain, LangGraph, OpenCV, TensorFlow, PyTorch, LSTM, GANs, Transformers, RAG, prompt engineering, NLP, computer vision</dd></div>
+        <div><dt>Developer tools</dt><dd>Git, GitHub, Docker, Postman, Drizzle Kit</dd></div>
+        <div><dt>Core concepts</dt><dd>Microservices architecture, REST API design, data structures and algorithms</dd></div>
+      </dl>
+    </section>
+
+    <section id="recognition" class="block">
+      <h2>Recognition</h2>
+      <article class="award">
+        <h3>Winner, Working Note Award</h3>
+        <p>Kaggle AI Agent Security competition. <a href="https://github.com/Rishi7567/Kaggle-AI-Agent-Security" target="_blank" rel="noopener">Read the write-up and code on GitHub</a>.</p>
+      </article>
+      <ul class="certs">
+        <li><strong>NPTEL Elite + Silver Medal</strong>, Design Thinking: A Primer</li>
+        <li><strong>NPTEL Elite + Silver Medal</strong>, The Joy of Computing using Python</li>
+        <li><strong>Data Structures and Algorithms using Python</strong>, Infosys Springboard</li>
+        <li><strong>Machine Learning Professional</strong>, RapidMiner</li>
+      </ul>
+    </section>
+
+    <section id="education" class="block">
+      <h2>Education</h2>
+      <div class="job-head">
+        <h3>Manav Rachna University</h3>
+        <p class="when">2023 to 2027 (expected)</p>
+      </div>
+      <p>Bachelor of Technology in Computer Science Engineering. CGPA 7.54.</p>
+    </section>
+
+    <section id="contact" class="block contact">
+      <h2>Contact</h2>
+      <p>I'm looking for full stack and AI/ML roles. Email is the fastest way to reach me.</p>
+      <a class="email" href="mailto:rishimegupta@gmail.com">rishimegupta@gmail.com</a>
+      <div class="cta">
+        <a class="btn ghost" href="https://github.com/Rishi7567" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/rishigupta007" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Rishi Gupta, 2026</p>
+  </footer>
+</body>
+</html>
