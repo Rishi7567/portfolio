@@ -78,13 +78,14 @@ function initSim(root) {
   const label = (v, step) => "$" + (v / 1e6).toFixed(step < 1e6 ? 1 : 0) + "M";
 
   function draw() {
+    // Measure before any DOM writes, so the browser never has to re-run layout mid-draw.
+    // Drawing at the chart's real pixel width keeps axis text readable on phones.
+    W = Math.max(300, Math.round(svg.getBoundingClientRect().width) || 640);
+    H = W < 480 ? 220 : 300;
     const p = params();
     inputs.forEach((i) => { root.querySelector(`output[for=${i.id}]`).textContent = i.value + "%"; });
     const s = simulate(p);
     const all = KEYS.flatMap((k) => s[k]);
-    // Draw at the chart's real pixel width so axis text stays readable on phones.
-    W = Math.max(300, Math.round(svg.getBoundingClientRect().width) || 640);
-    H = W < 480 ? 220 : 300;
     svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
     const xStep = W < 480 ? 12 : 6;
     const min = Math.min(...all), max = Math.max(...all);
