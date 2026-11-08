@@ -1,7 +1,7 @@
 /* Fonts: self-hosted, SIL Open Font License 1.1 (see fonts/OFL*.txt). Latin subset. */
-@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(fonts/space-grotesk.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/plex-sans.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/plex-sans-italic.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: optional; src: url(fonts/space-grotesk.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: optional; src: url(fonts/plex-sans.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight: 400; font-display: optional; src: url(fonts/plex-sans-italic.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 /* Palette: Deep Teal. Body text, muted text and accent all pass WCAG AA in both themes.
    The hero and contact bands are always dark ink-teal. */
@@ -142,17 +142,21 @@ h1 { font-size: clamp(2.75rem, 6vw, 4.25rem); letter-spacing: -.035em; line-heig
 .lg::before { content: ""; width: .9rem; height: 3px; border-radius: 2px; background: var(--c); }
 .lg1 { --c: #94A3B8; } .lg2 { --c: #38BDF8; } .lg3 { --c: #FBBF24; }
 .spark .g { stroke: rgba(255, 255, 255, .07); stroke-width: 1; fill: none; }
-.spark .s { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.spark .s { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .spark .s1 { stroke: #94A3B8; }
 .spark .s2 { stroke: #38BDF8; }
 .spark .s3 { stroke: #FBBF24; }
+/* Load-in reveal: a cover slides off the chart. It animates only transform,
+   so the browser runs it on the compositor without restyling the page each frame. */
+.spark-wrap { position: relative; display: block; overflow: hidden; }
 @media (prefers-reduced-motion: no-preference) {
-  .spark .s { animation: draw 1.6s cubic-bezier(.5, 0, .2, 1) both; }
-  .spark .s1 { animation-delay: .2s; }
-  .spark .s3 { animation-delay: .35s; }
-  .spark .s2 { animation-delay: .5s; }
+  .spark-wrap::after {
+    content: ""; position: absolute; inset: 0;
+    background: var(--ink-2);
+    animation: reveal 1.5s cubic-bezier(.5, 0, .2, 1) .25s both;
+  }
 }
-@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes reveal { from { transform: translateX(0); } to { transform: translateX(101%); } }
 
 .bars { display: flex; flex-direction: column; gap: .6rem; }
 .bar-row { display: grid; grid-template-columns: 1fr auto; gap: .2rem .6rem; font-size: .8125rem; }
