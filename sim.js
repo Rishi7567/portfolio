@@ -78,9 +78,6 @@ function initSim(root) {
   const label = (v, step) => "$" + (v / 1e6).toFixed(step < 1e6 ? 1 : 0) + "M";
 
   function draw() {
-    // Measure before any DOM writes, so the browser never has to re-run layout mid-draw.
-    // Drawing at the chart's real pixel width keeps axis text readable on phones.
-    W = Math.max(300, Math.round(svg.getBoundingClientRect().width) || 640);
     H = W < 480 ? 220 : 300;
     const p = params();
     inputs.forEach((i) => { root.querySelector(`output[for=${i.id}]`).textContent = i.value + "%"; });
@@ -124,12 +121,12 @@ function initSim(root) {
   }
 
   inputs.forEach((i) => i.addEventListener("input", draw));
-  let pending = false;
-  window.addEventListener("resize", () => {
-    if (pending) return;
-    pending = true;
-    requestAnimationFrame(() => { pending = false; draw(); });
-  });
+  // The browser reports the chart's width after layout, so drawing never forces a reflow.
+  // Drawing at the real pixel width keeps axis text readable on phones.
+  new ResizeObserver((entries) => {
+    const w = Math.max(300, Math.round(entries[0].contentRect.width));
+    if (w !== W) { W = w; draw(); }
+  }).observe(svg);
   root.querySelector("[data-reset]").addEventListener("click", () => {
     inputs.forEach((i) => { i.value = DEFAULTS[i.name]; });
     draw();
