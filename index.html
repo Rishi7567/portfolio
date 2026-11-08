@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rishi Gupta | Full-stack and ML Developer</title>
   <meta name="description" content="Rishi Gupta, final-year computer science student at Manav Rachna University. Full-stack and machine learning projects in React, Node.js and Python.">
-  <meta name="theme-color" content="#0F766E">
+  <meta name="theme-color" content="#0B2522">
   <meta property="og:title" content="Rishi Gupta | Full-stack and ML Developer">
   <meta property="og:description" content="Full-stack and machine learning projects in React, Node.js and Python, with a live pricing simulator you can try.">
   <meta property="og:type" content="website">
@@ -15,6 +15,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/plex-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script defer src="sim.js"></script>
@@ -29,62 +30,89 @@
 
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top">Rishi Gupta</a>
-      <nav aria-label="Sections">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#recognition">Recognition</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="hero-band">
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#top"><span class="mark" aria-hidden="true">RG</span>Rishi Gupta</a>
+        <nav aria-label="Sections">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#recognition">Recognition</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <main id="main">
-    <!-- Intro -->
     <section class="wrap hero" id="top">
       <div class="hero-text">
+        <p class="status"><span class="dot" aria-hidden="true"></span>Open to software engineering roles</p>
         <h1>Rishi Gupta</h1>
         <p class="title">Full-stack and machine learning developer</p>
-        <p class="intro">I'm a final-year computer science student who builds web apps and the ML systems behind them, mostly in React, Node.js and Python. Most recently I interned as a software development engineer at Monetizely.</p>
+        <p class="intro">Final-year computer science student at Manav Rachna University. I build web apps and the ML systems behind them, in React, Node.js and Python. Most recently, software development engineer intern at Monetizely.</p>
         <div class="actions">
           <a class="btn primary" href="mailto:rishimegupta@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email me</a>
-          <a class="btn" href="https://github.com/Rishi7567"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/rishigupta007"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/Rishi7567"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/rishigupta007"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
         </div>
       </div>
-      <aside class="profile" aria-label="Profile summary">
-        <dl>
-          <div><dt>Studying</dt><dd>B.Tech CSE, Manav Rachna University<span>2023 – 2027, CGPA 7.54</span></dd></div>
-          <div><dt>Latest role</dt><dd>SDE Intern, Monetizely<span>Jun – Aug 2026</span></dd></div>
-          <div><dt>Recognition</dt><dd>Winner, Kaggle Working Note Award<span>AI Agent Security competition</span></dd></div>
-          <div><dt>Based in</dt><dd>Faridabad, India<span>Open to software engineering roles</span></dd></div>
-        </dl>
-      </aside>
-    </section>
 
+      <div class="collage" aria-label="Highlights from my projects">
+        <a class="tile tile-sim" href="#experience">
+          <span class="tile-label">Pricing simulator, Monetizely</span>
+          <span class="legend" aria-hidden="true"><span class="lg lg1">Per-user</span><span class="lg lg2">Usage-based</span><span class="lg lg3">Outcome-based</span></span>
+          <svg class="spark" viewBox="0 0 300 120" aria-hidden="true">
+            <path class="g" d="M8 32H292M8 64H292M8 96H292"/>
+            <path class="s s1" pathLength="1" d="M8.0 102.4L15.9 101.3L23.8 100.1L31.7 99.0L39.6 97.8L47.4 96.6L55.3 95.3L63.2 94.1L71.1 92.8L79.0 91.5L86.9 90.2L94.8 88.8L102.7 87.4L110.6 86.0L118.4 84.6L126.3 83.1L134.2 81.6L142.1 80.1L150.0 78.5L157.9 76.9L165.8 75.3L173.7 73.7L181.6 72.0L189.4 70.3L197.3 68.6L205.2 66.8L213.1 65.0L221.0 63.1L228.9 61.2L236.8 59.3L244.7 57.4L252.6 55.4L260.4 53.3L268.3 51.2L276.2 49.1L284.1 47.0L292.0 44.8"/>
+            <path class="s s3" pathLength="1" d="M8.0 105.3L15.9 103.9L23.8 102.5L31.7 101.1L39.6 99.6L47.4 98.1L55.3 96.6L63.2 95.0L71.1 93.4L79.0 91.7L86.9 90.0L94.8 88.2L102.7 86.5L110.6 84.6L118.4 82.7L126.3 80.8L134.2 78.8L142.1 76.8L150.0 74.7L157.9 72.6L165.8 70.4L173.7 68.2L181.6 65.9L189.4 63.6L197.3 61.2L205.2 58.7L213.1 56.2L221.0 53.6L228.9 50.9L236.8 48.2L244.7 45.4L252.6 42.6L260.4 39.6L268.3 36.6L276.2 33.5L284.1 30.4L292.0 27.2"/>
+            <path class="s s2" pathLength="1" d="M8.0 105.3L15.9 103.8L23.8 102.3L31.7 100.7L39.6 99.1L47.4 97.4L55.3 95.7L63.2 94.0L71.1 92.2L79.0 90.3L86.9 88.4L94.8 86.5L102.7 84.5L110.6 82.4L118.4 80.3L126.3 78.2L134.2 75.9L142.1 73.6L150.0 71.3L157.9 68.9L165.8 66.4L173.7 63.9L181.6 61.2L189.4 58.6L197.3 55.8L205.2 53.0L213.1 50.0L221.0 47.1L228.9 44.0L236.8 40.8L244.7 37.6L252.6 34.3L260.4 30.8L268.3 27.3L276.2 23.7L284.1 20.0L292.0 16.2"/>
+          </svg>
+          <span class="tile-foot"><strong>$8.99M</strong> usage-based ARR by year 3, vs $7.20M per-user</span>
+        </a>
+
+        <a class="tile tile-hand" href="#projects">
+          <span class="tile-label">HandScript AI, 20 lines</span>
+          <span class="bars">
+            <span class="bar-row"><span class="bar-name">One call per line</span><span class="bar-val">133 s</span><span class="bar"><span style="width:100%"></span></span></span>
+            <span class="bar-row"><span class="bar-name">Batched</span><span class="bar-val">17.6 s</span><span class="bar"><span class="fast" style="width:13.2%"></span></span></span>
+          </span>
+          <span class="tile-foot"><strong>7.6&times; faster</strong>measured on a laptop CPU</span>
+        </a>
+
+        <a class="tile tile-news" href="#newsimpact">
+          <span class="tile-label">NewsImpact, Fed statement</span>
+          <span class="chip">Hawkish, 61%</span>
+          <span class="quote">&ldquo;higher for longer&rdquo;</span>
+          <span class="tile-foot"><strong>TLT &minus;3.66%</strong> abnormal return, days 0–3</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <main id="main">
     <!-- Experience -->
     <section class="section" id="experience" aria-labelledby="h-exp">
       <div class="wrap">
-        <h2 id="h-exp">Experience</h2>
-        <article>
-          <div class="feature">
-            <div class="feature-text">
+        <div class="section-head">
+          <h2 id="h-exp">Experience</h2>
+          <p>What I built during my internship, running live on this page.</p>
+        </div>
+        <article class="card exp">
+          <div class="exp-head">
+            <div>
               <p class="meta">Monetizely, Jun – Aug 2026</p>
               <h3>Software Development Engineer Intern</h3>
-              <p class="lede">Built a <strong>SaaS Pricing Model Simulator</strong> that compares seat-based, usage-based and outcome-based pricing by forecasting a company's annual recurring revenue (ARR) over 36 months.</p>
             </div>
-            <div class="feature-text">
-              <ul>
-                <li>React front end with Chart.js forecast graphs that redraw as the inputs change.</li>
-                <li>Stateless Node.js and Express API for the projections and a growth-sensitivity analysis.</li>
-                <li>9 API tests, including hand-calculated expected values and invalid input.</li>
-              </ul>
-              <ul class="tags" aria-label="Technologies">
-                <li>React</li><li>Vite</li><li>Chart.js</li><li>Node.js</li><li>Express</li>
-              </ul>
-            </div>
+            <ul class="tags" aria-label="Technologies">
+              <li>React</li><li>Vite</li><li>Chart.js</li><li>Node.js</li><li>Express</li>
+            </ul>
+          </div>
+          <div class="exp-body">
+            <p class="lede">Built a <strong>SaaS Pricing Model Simulator</strong> that compares seat-based, usage-based and outcome-based pricing by forecasting a company's annual recurring revenue (ARR) over 36 months.</p>
+            <ul>
+              <li>React front end with Chart.js forecast graphs that redraw as the inputs change.</li>
+              <li>Stateless Node.js and Express API for the projections and a growth-sensitivity analysis.</li>
+              <li>9 API tests, including hand-calculated expected values and invalid input.</li>
+            </ul>
           </div>
 
           <div class="sim" id="sim">
@@ -127,10 +155,21 @@
     <!-- Projects -->
     <section class="section alt" id="projects" aria-labelledby="h-proj">
       <div class="wrap">
-        <h2 id="h-proj">Projects</h2>
+        <div class="section-head">
+          <h2 id="h-proj">Projects</h2>
+          <p>Two systems I designed and built end to end.</p>
+        </div>
 
-        <article class="feature">
-          <div class="feature-text">
+        <article class="card project">
+          <figure class="panel panel-teal">
+            <ol class="arch" aria-label="HandScript AI architecture">
+              <li><strong>Web app</strong><span>React, TypeScript</span></li>
+              <li><strong>API server</strong><span>Node.js, Express</span><em>MongoDB stores users and saved styles</em></li>
+              <li><strong>Model server</strong><span>FastAPI, Python</span><em>TensorFlow LSTM for handwriting, PyTorch TRGAN for style, loaded in the background</em></li>
+            </ol>
+            <figcaption>Each request goes from the web app to the API, then to the model server.</figcaption>
+          </figure>
+          <div class="project-text">
             <h3>HandScript AI</h3>
             <p class="lede">Converts typed text into realistic handwriting, and can pick up a person's style from one photo of their writing.</p>
             <ul>
@@ -144,18 +183,14 @@
             </ul>
             <a class="repo" href="https://github.com/Rishi7567/handscript-ai"><svg aria-hidden="true"><use href="#i-github"/></svg>View source code</a>
           </div>
-          <figure class="diagram">
-            <ol class="arch" aria-label="HandScript AI architecture">
-              <li><strong>Web app</strong><span>React, TypeScript</span></li>
-              <li><strong>API server</strong><span>Node.js, Express</span><em>MongoDB stores users and saved styles</em></li>
-              <li><strong>Model server</strong><span>FastAPI, Python</span><em>TensorFlow LSTM for handwriting, PyTorch TRGAN for style, loaded in the background</em></li>
-            </ol>
-            <figcaption>Three services: each request goes from the web app to the API, then to the model server.</figcaption>
-          </figure>
         </article>
 
-        <article class="feature flip">
-          <div class="feature-text">
+        <article class="card project flip" id="newsimpact">
+          <figure class="panel panel-dark">
+            <img src="images/newsimpact-panel.webp" width="492" height="472" loading="lazy" alt="NewsImpact analysis panel: a Federal Reserve statement read as hawkish at 61%, the key phrases behind it, and the effect on the TLT bond fund.">
+            <figcaption>A Fed statement read as hawkish, with the phrases behind the call and the measured effect on TLT.</figcaption>
+          </figure>
+          <div class="project-text">
             <h3>NewsImpact</h3>
             <p class="lede">Reads financial news as it's published, estimates which stocks each story will move, and checks those calls against what prices actually did.</p>
             <ul>
@@ -169,10 +204,6 @@
             </ul>
             <a class="repo" href="https://github.com/Rishi7567/newsimpact"><svg aria-hidden="true"><use href="#i-github"/></svg>View source code</a>
           </div>
-          <figure class="shot shot-narrow">
-            <img src="images/newsimpact-panel.webp" width="492" height="472" loading="lazy" alt="NewsImpact analysis panel: a Federal Reserve statement read as hawkish at 61%, the key phrases behind it, and the effect on the TLT bond fund.">
-            <figcaption>A Fed statement read as hawkish, with the phrases behind the call and the measured effect on TLT.</figcaption>
-          </figure>
         </article>
       </div>
     </section>
@@ -180,14 +211,18 @@
     <!-- Recognition -->
     <section class="section" id="recognition" aria-labelledby="h-rec">
       <div class="wrap">
-        <h2 id="h-rec">Recognition</h2>
+        <div class="section-head">
+          <h2 id="h-rec">Recognition</h2>
+          <p>Awards and certifications.</p>
+        </div>
         <div class="award">
           <svg class="award-icon" aria-hidden="true"><use href="#i-award"/></svg>
-          <div>
+          <div class="award-text">
+            <p class="award-kicker">Kaggle AI Agent Security competition</p>
             <h3>Winner, $2,500 Working Note Award</h3>
-            <p>Kaggle AI Agent Security competition, for the write-up <cite>Reachability Over Creativity</cite>. It showed that the benchmark's scoring rewarded a harmless action, and shipped the tool and fixes to catch it.</p>
+            <p>For the write-up <cite>Reachability Over Creativity</cite>. It showed that the benchmark's scoring rewarded a harmless action, and shipped the tool and fixes to catch it.</p>
           </div>
-          <a class="btn" href="kaggle.html">Read the summary</a>
+          <a class="btn light" href="kaggle.html">Read the summary</a>
         </div>
         <ul class="certs">
           <li><strong>Design Thinking: A Primer</strong><span>NPTEL, Elite + Silver Medal</span></li>
@@ -201,35 +236,44 @@
     <!-- Skills -->
     <section class="section alt" id="skills" aria-labelledby="h-skills">
       <div class="wrap">
-        <h2 id="h-skills">Skills</h2>
+        <div class="section-head">
+          <h2 id="h-skills">Skills</h2>
+          <p>Tools I've used in the projects above.</p>
+        </div>
         <div class="skill-grid">
-          <div><h3>Languages</h3><ul class="tags"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>C</li><li>SQL</li><li>HTML</li><li>CSS</li></ul></div>
-          <div><h3>Web</h3><ul class="tags"><li>React</li><li>Next.js</li><li>Node.js</li><li>Express</li><li>FastAPI</li><li>Tailwind CSS</li><li>Vite</li><li>Chart.js</li></ul></div>
-          <div><h3>Machine learning</h3><ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>Hugging Face Transformers</li><li>OpenCV</li><li>NLP</li><li>Computer vision</li></ul></div>
-          <div><h3>Data and tools</h3><ul class="tags"><li>MongoDB</li><li>Git</li><li>GitHub</li><li>Postman</li><li>REST APIs</li></ul></div>
+          <div class="card skill"><h3>Languages</h3><ul class="tags"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>C</li><li>SQL</li><li>HTML</li><li>CSS</li></ul></div>
+          <div class="card skill"><h3>Web</h3><ul class="tags"><li>React</li><li>Next.js</li><li>Node.js</li><li>Express</li><li>FastAPI</li><li>Tailwind CSS</li><li>Vite</li><li>Chart.js</li></ul></div>
+          <div class="card skill"><h3>Machine learning</h3><ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>Hugging Face Transformers</li><li>OpenCV</li><li>NLP</li><li>Computer vision</li></ul></div>
+          <div class="card skill"><h3>Data and tools</h3><ul class="tags"><li>MongoDB</li><li>Git</li><li>GitHub</li><li>Postman</li><li>REST APIs</li></ul></div>
         </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section" id="contact" aria-labelledby="h-contact">
-      <div class="wrap contact">
-        <div>
-          <h2 id="h-contact">Get in touch</h2>
-          <p>I'm looking for software engineering roles in full-stack or machine learning work. Email is the quickest way to reach me.</p>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="mailto:rishimegupta@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>rishimegupta@gmail.com</a>
-          <a class="btn" href="https://github.com/Rishi7567"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/rishigupta007"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+        <div class="edu">
+          <div>
+            <p class="meta">Education</p>
+            <h3>B.Tech in Computer Science Engineering, Manav Rachna University</h3>
+          </div>
+          <p class="edu-side">2023 – 2027<span>CGPA 7.54</span></p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="wrap foot">
-    <p>Rishi Gupta. Updated November 2026.</p>
-    <p class="colophon">Built by hand in HTML, CSS and plain JavaScript, with no framework and no cookies. <a href="https://github.com/Rishi7567/portfolio">See the source</a>.</p>
-  </footer>
+  <!-- Contact -->
+  <section class="contact-band" id="contact" aria-labelledby="h-contact">
+    <div class="wrap contact">
+      <div>
+        <h2 id="h-contact">Let's work together</h2>
+        <p>I'm looking for software engineering roles in full-stack or machine learning work. Email is the quickest way to reach me.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="mailto:rishimegupta@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>rishimegupta@gmail.com</a>
+        <a class="btn ghost" href="https://github.com/Rishi7567"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/rishigupta007"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+      </div>
+    </div>
+    <footer class="wrap foot">
+      <p>Rishi Gupta. Updated November 2026.</p>
+      <p>Built by hand in HTML, CSS and plain JavaScript, with no framework and no cookies. <a href="https://github.com/Rishi7567/portfolio">See the source</a>.</p>
+    </footer>
+  </section>
 </body>
 </html>

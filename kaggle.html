@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reachability Over Creativity | Rishi Gupta</title>
   <meta name="description" content="Plain-language summary of Rishi Gupta's award-winning Kaggle write-up on how an AI agent security benchmark's scoring rewarded a harmless action.">
-  <meta name="theme-color" content="#0F766E">
+  <meta name="theme-color" content="#0B2522">
   <meta property="og:title" content="Reachability Over Creativity">
   <meta property="og:description" content="Winner of a $2,500 Kaggle Working Note Award: why the benchmark's scoring rewarded a harmless action, and the fixes.">
   <meta property="og:image" content="https://rishi-gupta-portfolio.vercel.app/og.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/plex-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="nav">
+  <header class="nav page-nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="index.html">Rishi Gupta</a>
+      <a class="brand" href="index.html"><span class="mark" aria-hidden="true">RG</span>Rishi Gupta</a>
     </div>
   </header>
 
@@ -36,7 +37,7 @@
 
     <div class="matrix-wrap">
       <table class="matrix">
-        <caption class="matrix-note" style="caption-side: bottom; text-align: left; padding-top: .5rem;">Y means the rule can fire and get past that guardrail. Output of <code>reachability.py</code> in the repository.</caption>
+        <caption class="matrix-note">Y means the rule can fire and get past that guardrail. Output of <code>reachability.py</code> in the repository.</caption>
         <thead>
           <tr><th scope="col">Scoring rule</th><th scope="col">Public guardrail</th><th scope="col">Taint only</th><th scope="col">Taint + content</th></tr>
         </thead>
@@ -59,7 +60,7 @@
     </ul>
 
     <h2>What the judges said</h2>
-    <blockquote class="quote">
+    <blockquote class="quote-block">
       <p>"A clear diagnosis of benchmark failures with an implemented repair and experiments examining both security and legitimate task completion... the progression from identifying misleading scoring incentives to demonstrating concrete improvements, supported by inspectable code and explicit limitations."</p>
       <footer>Competition host, winners announcement on Kaggle</footer>
     </blockquote>
@@ -70,7 +71,7 @@
     </div>
   </main>
 
-  <footer class="wrap foot">
+  <footer class="wrap foot plain-foot">
     <p>Rishi Gupta. Updated November 2026.</p>
   </footer>
 </body>
