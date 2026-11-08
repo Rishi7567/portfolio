@@ -5,15 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rishi Gupta | Full-stack and ML Developer</title>
   <meta name="description" content="Rishi Gupta, final-year computer science student at Manav Rachna University. Full-stack and machine learning projects in React, Node.js and Python.">
+  <meta name="theme-color" content="#0F766E">
   <meta property="og:title" content="Rishi Gupta | Full-stack and ML Developer">
-  <meta property="og:description" content="Full-stack and machine learning projects in React, Node.js and Python.">
+  <meta property="og:description" content="Full-stack and machine learning projects in React, Node.js and Python, with a live pricing simulator you can try.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://rishi-gupta-portfolio.vercel.app/images/pricing-simulator.webp">
+  <meta property="og:url" content="https://rishi-gupta-portfolio.vercel.app/">
+  <meta property="og:image" content="https://rishi-gupta-portfolio.vercel.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script defer src="sim.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -31,7 +38,7 @@
       <nav aria-label="Sections">
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#recognition">Recognition</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -45,9 +52,9 @@
         <p class="title">Full-stack and machine learning developer</p>
         <p class="intro">I'm a final-year computer science student who builds web apps and the ML systems behind them, mostly in React, Node.js and Python. Most recently I interned as a software development engineer at Monetizely.</p>
         <div class="actions">
-          <a class="btn primary" href="mailto:rishimegupta@gmail.com"><svg><use href="#i-mail"/></svg>Email me</a>
-          <a class="btn" href="https://github.com/Rishi7567"><svg><use href="#i-github"/></svg>GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/rishigupta007"><svg><use href="#i-linkedin"/></svg>LinkedIn</a>
+          <a class="btn primary" href="mailto:rishimegupta@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email me</a>
+          <a class="btn" href="https://github.com/Rishi7567"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/rishigupta007"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
         </div>
       </div>
       <aside class="profile" aria-label="Profile summary">
@@ -64,24 +71,58 @@
     <section class="section" id="experience" aria-labelledby="h-exp">
       <div class="wrap">
         <h2 id="h-exp">Experience</h2>
-        <article class="feature">
-          <div class="feature-text">
-            <p class="meta">Monetizely, Jun – Aug 2026</p>
-            <h3>Software Development Engineer Intern</h3>
-            <p class="lede">Built a <strong>SaaS Pricing Model Simulator</strong> that compares seat-based, usage-based and outcome-based pricing by forecasting a company's annual recurring revenue (ARR) over 36 months.</p>
-            <ul>
-              <li>React front end with Chart.js forecast graphs that redraw as the inputs change.</li>
-              <li>Stateless Node.js and Express API for the projections and a growth-sensitivity analysis.</li>
-              <li>9 API tests, including hand-calculated expected values and invalid input.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li>React</li><li>Vite</li><li>Chart.js</li><li>Node.js</li><li>Express</li>
-            </ul>
+        <article>
+          <div class="feature">
+            <div class="feature-text">
+              <p class="meta">Monetizely, Jun – Aug 2026</p>
+              <h3>Software Development Engineer Intern</h3>
+              <p class="lede">Built a <strong>SaaS Pricing Model Simulator</strong> that compares seat-based, usage-based and outcome-based pricing by forecasting a company's annual recurring revenue (ARR) over 36 months.</p>
+            </div>
+            <div class="feature-text">
+              <ul>
+                <li>React front end with Chart.js forecast graphs that redraw as the inputs change.</li>
+                <li>Stateless Node.js and Express API for the projections and a growth-sensitivity analysis.</li>
+                <li>9 API tests, including hand-calculated expected values and invalid input.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies">
+                <li>React</li><li>Vite</li><li>Chart.js</li><li>Node.js</li><li>Express</li>
+              </ul>
+            </div>
           </div>
-          <figure class="shot">
-            <img src="images/pricing-simulator.webp" width="1600" height="939" loading="lazy" alt="The SaaS Pricing Model Simulator: input fields on the left, year-3 ARR for each pricing model at the top, and a 36-month ARR line chart.">
-            <figcaption>Year-3 ARR under each pricing model, with the 36-month projection.</figcaption>
-          </figure>
+
+          <div class="sim" id="sim">
+            <div class="sim-top">
+              <div>
+                <h4>Try the simulator</h4>
+                <p>Move the sliders to see how each pricing model's revenue grows. This runs the same formula as the app's API, right in your browser.</p>
+              </div>
+              <button type="button" class="btn small" data-reset>Reset</button>
+            </div>
+            <div class="sim-body">
+              <div class="sim-controls">
+                <label for="r-cg">Customer growth per year <output for="r-cg"></output></label>
+                <input type="range" id="r-cg" name="customerGrowth" min="0" max="60" step="1" value="20">
+                <label for="r-ch">Customers lost when switching model <output for="r-ch"></output></label>
+                <input type="range" id="r-ch" name="migrationChurn" min="0" max="30" step="1" value="5">
+                <label for="r-sg">Seat growth per customer <output for="r-sg"></output></label>
+                <input type="range" id="r-sg" name="seatGrowth" min="0" max="40" step="1" value="5">
+                <label for="r-ug">Usage growth per customer <output for="r-ug"></output></label>
+                <input type="range" id="r-ug" name="usageGrowth" min="0" max="40" step="1" value="15">
+                <label for="r-og">Outcome growth per customer <output for="r-og"></output></label>
+                <input type="range" id="r-og" name="outcomeGrowth" min="0" max="40" step="1" value="12">
+                <p class="sim-note">Starts from 200 customers, each paying $1,500 a month under every model.</p>
+              </div>
+              <div class="sim-chart">
+                <div class="sim-stats" aria-live="polite">
+                  <div class="stat k-perUser"><span>Per-user, year 3</span><strong data-y3="perUser"></strong><em>Current model</em></div>
+                  <div class="stat k-usage"><span>Usage-based, year 3</span><strong data-y3="usage"></strong><em data-diff="usage"></em></div>
+                  <div class="stat k-outcome"><span>Outcome-based, year 3</span><strong data-y3="outcome"></strong><em data-diff="outcome"></em></div>
+                </div>
+                <svg viewBox="0 0 640 300" role="img" aria-label="ARR over 36 months"></svg>
+                <p class="sim-caption">Annual recurring revenue over 36 months, in millions of dollars.</p>
+              </div>
+            </div>
+          </div>
         </article>
       </div>
     </section>
@@ -96,20 +137,21 @@
             <h3>HandScript AI</h3>
             <p class="lede">Converts typed text into realistic handwriting, and can pick up a person's style from one photo of their writing.</p>
             <ul>
-              <li>Cut the time to generate 20 lines from <strong>100 s to 2.3 s</strong> with model-level batching in TensorFlow, shorter LSTM decoding, and an LRU cache for repeated requests.</li>
-              <li>Preloading models in the background brought cold start from <strong>10 s to under 1 s</strong>.</li>
+              <li>Batched every line into a single TensorFlow call instead of one call per line: 20 lines went from <strong>133 s to 17.6 s</strong>, 7.6&times; faster (measured on a laptop CPU).</li>
+              <li>Repeat requests are served from a SHA-256-keyed LRU cache in <strong>under 1 ms</strong>.</li>
+              <li>The model loads in a background thread, so the server starts at once and reports whether the model is still warming up or ready.</li>
               <li>Two-stage style extraction: OpenCV segments the handwriting, then a PyTorch TRGAN model encodes the style.</li>
             </ul>
             <ul class="tags" aria-label="Technologies">
               <li>React</li><li>TypeScript</li><li>Node.js</li><li>Express</li><li>FastAPI</li><li>PyTorch</li><li>TensorFlow</li><li>OpenCV</li><li>MongoDB</li>
             </ul>
-            <a class="repo" href="https://github.com/Rishi7567/handscript-ai"><svg><use href="#i-github"/></svg>View source code</a>
+            <a class="repo" href="https://github.com/Rishi7567/handscript-ai"><svg aria-hidden="true"><use href="#i-github"/></svg>View source code</a>
           </div>
-          <figure class="diagram" aria-label="HandScript AI architecture">
-            <ol class="arch">
+          <figure class="diagram">
+            <ol class="arch" aria-label="HandScript AI architecture">
               <li><strong>Web app</strong><span>React, TypeScript</span></li>
-              <li><strong>API server</strong><span>Node.js, Express</span><em>MongoDB stores users and results</em></li>
-              <li><strong>Model server</strong><span>FastAPI, Python</span><em>TensorFlow LSTM and PyTorch TRGAN, preloaded at start-up</em></li>
+              <li><strong>API server</strong><span>Node.js, Express</span><em>MongoDB stores users and saved styles</em></li>
+              <li><strong>Model server</strong><span>FastAPI, Python</span><em>TensorFlow LSTM for handwriting, PyTorch TRGAN for style, loaded in the background</em></li>
             </ol>
             <figcaption>Three services: each request goes from the web app to the API, then to the model server.</figcaption>
           </figure>
@@ -128,7 +170,7 @@
             <ul class="tags" aria-label="Technologies">
               <li>Next.js</li><li>React</li><li>TypeScript</li><li>Python</li><li>FastAPI</li><li>PyTorch</li><li>Hugging Face</li>
             </ul>
-            <a class="repo" href="https://github.com/Rishi7567/newsimpact"><svg><use href="#i-github"/></svg>View source code</a>
+            <a class="repo" href="https://github.com/Rishi7567/newsimpact"><svg aria-hidden="true"><use href="#i-github"/></svg>View source code</a>
           </div>
           <figure class="shot shot-narrow">
             <img src="images/newsimpact-panel.webp" width="492" height="472" loading="lazy" alt="NewsImpact analysis panel: a Federal Reserve statement read as hawkish at 61%, the key phrases behind it, and the effect on the TLT bond fund.">
@@ -145,10 +187,10 @@
         <div class="award">
           <svg class="award-icon" aria-hidden="true"><use href="#i-award"/></svg>
           <div>
-            <h3>Winner, Working Note Award</h3>
-            <p>Kaggle AI Agent Security competition, for the write-up <cite>Reachability Over Creativity</cite>.</p>
+            <h3>Winner, $2,500 Working Note Award</h3>
+            <p>Kaggle AI Agent Security competition, for the write-up <cite>Reachability Over Creativity</cite>. It showed that the benchmark's scoring rewarded a harmless action, and shipped the tool and fixes to catch it.</p>
           </div>
-          <a class="repo" href="https://github.com/Rishi7567/Kaggle-AI-Agent-Security"><svg><use href="#i-github"/></svg>Read the write-up</a>
+          <a class="btn" href="kaggle.html">Read the summary</a>
         </div>
         <ul class="certs">
           <li><strong>Design Thinking: A Primer</strong><span>NPTEL, Elite + Silver Medal</span></li>
@@ -180,9 +222,9 @@
           <p>I'm looking for software engineering roles in full-stack or machine learning work. Email is the quickest way to reach me.</p>
         </div>
         <div class="actions">
-          <a class="btn primary" href="mailto:rishimegupta@gmail.com"><svg><use href="#i-mail"/></svg>rishimegupta@gmail.com</a>
-          <a class="btn" href="https://github.com/Rishi7567"><svg><use href="#i-github"/></svg>GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/rishigupta007"><svg><use href="#i-linkedin"/></svg>LinkedIn</a>
+          <a class="btn primary" href="mailto:rishimegupta@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>rishimegupta@gmail.com</a>
+          <a class="btn" href="https://github.com/Rishi7567"><svg aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/rishigupta007"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
         </div>
       </div>
     </section>
@@ -190,6 +232,7 @@
 
   <footer class="wrap foot">
     <p>Rishi Gupta. Updated November 2026.</p>
+    <p class="colophon">Built by hand in HTML, CSS and plain JavaScript, with no framework and no cookies. <a href="https://github.com/Rishi7567/portfolio">See the source</a>.</p>
   </footer>
 </body>
 </html>

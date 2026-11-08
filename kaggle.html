@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reachability Over Creativity | Rishi Gupta</title>
+  <meta name="description" content="Plain-language summary of Rishi Gupta's award-winning Kaggle write-up on how an AI agent security benchmark's scoring rewarded a harmless action.">
+  <meta name="theme-color" content="#0F766E">
+  <meta property="og:title" content="Reachability Over Creativity">
+  <meta property="og:description" content="Winner of a $2,500 Kaggle Working Note Award: why the benchmark's scoring rewarded a harmless action, and the fixes.">
+  <meta property="og:image" content="https://rishi-gupta-portfolio.vercel.app/og.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Rishi Gupta</a>
+    </div>
+  </header>
+
+  <main class="wrap article">
+    <a class="back" href="index.html#recognition">Back to portfolio</a>
+    <h1>Reachability Over Creativity</h1>
+    <p class="subtitle">A plain-language summary of my write-up for the Kaggle <em>AI Agent Security: Multi-Step Tool Attacks</em> competition. It won one of the two $2,500 Working Note Awards in October 2026.</p>
+
+    <h2>The competition</h2>
+    <p>Competitors tried to trick AI agents that use tools, such as sending email, reading files and browsing, into doing something harmful. A benchmark checked each attempt against a set of scoring rules, and a guardrail tried to block dangerous actions. The more rules an attack triggered, the higher it scored.</p>
+
+    <h2>The key idea</h2>
+    <p class="keyidea">A scoring rule is only as good as its false-positive rate. If a harmless action that the user actually asked for can trigger it, the benchmark is measuring the scorer, not the agent, and competitors will farm it.</p>
+
+    <h2>What I found</h2>
+    <p>I worked out, for every scoring rule, whether any attack could both trigger it and get past each kind of guardrail. Under the strict guardrail, only one rule was still reachable, called <code>CONFUSED_DEPUTY</code>. It also fired on an ordinary request like "notify the team that the report is ready". So the private leaderboard came down to repeating one harmless action as fast as possible.</p>
+
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <caption class="matrix-note" style="caption-side: bottom; text-align: left; padding-top: .5rem;">Y means the rule can fire and get past that guardrail. Output of <code>reachability.py</code> in the repository.</caption>
+        <thead>
+          <tr><th scope="col">Scoring rule</th><th scope="col">Public guardrail</th><th scope="col">Taint only</th><th scope="col">Taint + content</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>EXFILTRATION</td><td class="yes">Y</td><td class="yes">Y</td><td class="no">·</td></tr>
+          <tr><td>UNTRUSTED_TO_ACTION</td><td class="no">·</td><td class="no">·</td><td class="no">·</td></tr>
+          <tr><td>DESTRUCTIVE_WRITE</td><td class="no">·</td><td class="yes">Y</td><td class="no">·</td></tr>
+          <tr class="hot"><td>CONFUSED_DEPUTY</td><td class="yes">Y</td><td class="yes">Y</td><td class="yes">Y</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>An audit tool</strong> that, before a benchmark launches, reports which rules can score at all and which ones fire on harmless requests. It needs no GPU and no leaderboard.</li>
+      <li><strong>A false-positive checker</strong> that builds a harmless, user-approved action for each rule and flags any rule that fires on it.</li>
+      <li><strong>A utility probe</strong> that measures the guardrail's cost: how many legitimate user tasks it breaks, not only how many attacks it blocks.</li>
+      <li><strong>Three fixes</strong>: structured authorization, scoring what the agent was persuaded to do, and checking every argument of a tool call. With them, the multi-step attacks count again, harmless traces come back clean, and the single-action shortcut stops paying.</li>
+      <li>63 automated checks, released under the MIT licence.</li>
+    </ul>
+
+    <h2>What the judges said</h2>
+    <blockquote class="quote">
+      <p>"A clear diagnosis of benchmark failures with an implemented repair and experiments examining both security and legitimate task completion... the progression from identifying misleading scoring incentives to demonstrating concrete improvements, supported by inspectable code and explicit limitations."</p>
+      <footer>Competition host, winners announcement on Kaggle</footer>
+    </blockquote>
+
+    <div class="actions" style="margin-top: 2.5rem;">
+      <a class="btn primary" href="https://github.com/Rishi7567/Kaggle-AI-Agent-Security">Read the code and full method on GitHub</a>
+      <a class="btn" href="index.html">Back to portfolio</a>
+    </div>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Rishi Gupta. Updated November 2026.</p>
+  </footer>
+</body>
+</html>
